@@ -1,6 +1,7 @@
 <?php
     namespace Projeto\model;//determinando o local do arquivo pessoa
-
+    require_once('Endereco.php');
+    use projeto\model\Endereco;
     class pessoa{
         //public - todos podem acessar
         //protected - so quem faz parte da familia pode acessar
@@ -10,27 +11,21 @@
         private string $nome;
         private float $cpf; //variavel com virgula
         private string $telefone; //comeca com ""
-        private string $endereco; 
-        private boolean $status;//true or false
+        private Endereco $endereco; 
+        private bool $status;//true or false
         
         //primeiro grande metodo de qualquer classe
-        public function __construct(){
-            $this->codigo   = 0;//instanciado
-            $this->nome     = " ";
-            $this->cpf      = 0;
-            $this->telefone = " ";
-            $this->endereco = " ";
-            $this->status   = true;
 
 
-        }//fim do metodo construct
+
+      
 
         public function __construct(int $codigo,
                                     string $nome, 
                                     float $cpf,
                                     string $telefone,
-                                    string $endereco,
-                                    boolean $status)
+                                    endereco $endereco,
+                                    bool $status)
         {
             $this->codigo   = $codigo;
             $this->nome     = $nome;
@@ -61,7 +56,7 @@
                    "<br>nome: ".$this->nome.
                    "<br>cpf: ".$this->cpf.
                    "<br>telefone: ".$this->telefone.
-                   "<br>endereco: ".$this->endereco.
+                   "<br>endereco: ".$this->endereco->imprimir.
                    "<br>status: ".$this->status;
         }//fim do metodo
     
